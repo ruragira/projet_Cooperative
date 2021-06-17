@@ -13,5 +13,16 @@ public function load_all_DB($tbl_name){
 	return $request->result();
 }
 
+	
+
+
+
+		public function add_p($data)
+		{
+			return $this->db->insert('cooperatve',$data);
+		}
+
 }
+
+
 ?>
