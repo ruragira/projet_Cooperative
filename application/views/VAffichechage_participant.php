@@ -10,7 +10,7 @@
                         <h3>Liste des participant</h3>
                     </div>
         <div class="text-center mb-3 col-md-3">
-        <a href="#" class="fa fa-plus  btn btn-success "> ggggggggggggg </a>
+        <a href="#" class="fa fa-plus  btn btn-success "> Affichage </a>
         </div>
                 <div class="card">
                     
@@ -21,38 +21,35 @@
     
                         <table  id="example1" class="table table-bordered table-striped">
 
-<?php echo $this->session->flashdata('message') ?>
-
+ <?php echo $this->session->flashdata('message') ?>
  <tr class="bg-secondary text-center">
-   <th><label>id_coop </label></th>
-   <th><label>nom </label></th>
-   <th><label>prenom </label></th>
-   <th><label>adresse </label></th>
-   <th><label>niveau_etude </label></th>
-   <th><label>faculte </label></th>
-   <th><label>nom_coop </label></th>
-   <th><label>objectif_coop </label></th>
-   <th><label>nbre_pers </label></th>
-   <th><label>adresse_coop </label></th>
-   <th><label>titre_coop </label></th>
-   <th><label>besoin_apprendre </label></th>
-   <th><label>attente </label></th>
-   <th><label>module_propose </label></th>
-   <th><label>explique_motivation </label></th>
+  
+   <th><label>Nom </label></th>
+   <th><label>Prenom </label></th>
+   <th><label>Adresse </label></th>
+   <th><label>Niveau_etude </label></th>
+   <th><label>Faculte </label></th>
+   <th><label>Nom du cooperative </label></th>
+   <th><label>Objectif du cooperative </label></th>
+   <th><label>Nbre du service </label></th>
+   <th><label>Adresse du cooperative </label></th>
+   <th><label>Titre du cooperative </label></th>
+   <th><label>Besoin d'apprendre </label></th>
+   <th><label>Attente </label></th>
+   <th><label>Module du propose </label></th>
+   <th><label>Explique_motivation </label></th>
    
-   
-
+  
   
  </tr>
 
- <?php foreach ($cooperative as $cooperative):
+ <?php foreach ($cooperatves as $cooperative):
   
     $donne=array('id_coop' =>$cooperative['id_coop'] );
-    $cooperatve=$this->projet->affich('cooperatve',$donne);
+    $cooperatve=$this->projet->affich('cooperatve');
 
-   // $data=array('id_emplacement'=>$emplacement_client['id_emplacement'] );
-   // $emplacement=$this->M_utilisateur_place_client->GetElement('emplacement',$data);
- 
+    $data=array('id_coop'=>$MCooperative['id_coop'] );
+    $cooperatve=$this->MCooperative->getRead('cooperatve',$data);
   ?>
    <tr>
    <td><?=$cooperatve['id_coop'] ?></td>
@@ -61,13 +58,22 @@
      <td><?=$cooperatve['adresse'] ?></td>
     <td><?=$cooperatve['niveau_etude'] ?></td>
     <td><?=$cooperatve['faculte'] ?></td>
-    <td><?=$cooperatve[''] ?></td>
-    <td><?=$cooperatve[''] ?></td>
-    <td><?=$cooperatve[''] ?></td>
-    <td><?=$cooperatve[''] ?></td>
-    <td><?=$cooperatve[''] ?></td>
-    <td><?=$cooperatve[''] ?></td>
-    <td><?=$cooperatve[''] ?></td>
+    <td><?=$cooperatve['nom_coop'] ?></td>
+    <td><?=$cooperatve['objectif_coop'] ?></td>
+    <td><?=$cooperatve['nbre_pers'] ?></td>
+    <td><?=$cooperatve['adresse_coop'] ?></td>
+    <td><?=$cooperatve['titre_coop'] ?></td>
+    <td><?=$cooperatve['besoin_apprendre'] ?></td>
+    <td><?=$cooperatve['attente'] ?></td>
+    
+    <td><?=$cooperatve['module_propose'] ?></td>
+    
+    <td><?=$cooperatve['explique_motivation'] ?></td>
+
+  
+
+
+
      <td>
      <a href=" #" class="glyphicon glyphicon-edit btn btn-primary" >Edit</a>
          <a href="#>" class="btn btn-danger form-inline" >Delete</a>
