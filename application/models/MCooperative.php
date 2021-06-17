@@ -5,12 +5,19 @@ class MCooperative extends CI_Model{
 		parent::__construct();
 		$this->load->database();
         $this->load->library('upload');
+	}
+	function getRead(){
+		$query=$this-> db->query('SELECT* FROM cooperative');
+		return $query-> result();
+		}
 
+
+		public function add_p($data)
+		{
+			return $this->db->insert('cooperatve',$data);
+		}
 }
 
-function getRead(){
-$query=$this-> db->query('SELECT* FROM cooperative');
-return $query-> result();
-}
-}
+
+
 ?>
